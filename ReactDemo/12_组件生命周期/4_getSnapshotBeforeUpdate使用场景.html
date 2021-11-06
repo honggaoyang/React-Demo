@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4_getSnapshotBeforeUpdate使用场景</title>
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+</head>
+<style>
+    .list {
+        width: 200px;
+        height: 150px;
+        background-color: cadetblue;
+        overflow: auto;
+    }
+
+    .news {
+        height: 30px;
+    }
+</style>
+
+<body>
+    <div id="test"></div>
+</body>
+
+</html>
+<script type="text/babel">
+
+    // 不让新闻随着滚动条滚动
+
+
+    // 1.创建组件
+    class News extends React.Component {
+        state = { newArr: [] }
+
+
+
+        // 组件挂载完毕的钩子
+        componentDidMount() {
+            setInterval(() => {
+                // 获取原状态
+                const { newArr } = this.state;
+                // 模拟一条新闻
+                const news = "新闻" + (newArr.length + 1)
+                // 更新状态
+                this.setState({ newArr: [news, ...newArr] })
+            }, 1000)
+        }
+
+
+        // 在更新之前获取快照
+        getSnapshotBeforeUpdate() {
+            return this.refs.list.scrollHeight
+        }
+
+        // 组件更新完毕的钩子   preProps,preState 之前的值
+        componentDidUpdate(preProps, preState, height) {
+            this.refs.list.scrollTop += this.refs.list.scrollHeight - height;
+        }
+
+        render() {
+            return (
+                <div className="list" ref="list">
+                    {
+                        this.state.newArr.map((n, i) => {
+                            return <div className="news" key={i}>{n}</div>
+                        })
+                    }
+                </div>
+            )
+        }
+    }
+
+    // 2.渲染组件到页面 
+    ReactDOM.render(<News />, document.getElementById("test"))
+
+</script>

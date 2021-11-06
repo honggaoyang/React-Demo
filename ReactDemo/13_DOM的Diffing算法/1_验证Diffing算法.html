@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1_验证Diffing算法</title>
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="test"></div>
+</body>
+
+</html>
+<script type="text/babel">
+
+
+    // 1.创建组件
+    class Time extends React.Component {
+        state = { date: new Date() }
+
+        componentDidMount() {
+            setInterval(() => {
+                this.setState({ date: new Date() })
+            }, 1000)
+        }
+
+        render() {
+            return (
+                <div>
+                    <h5>Hello</h5>
+                    <input type="text" />
+                    <span> 现在是：{this.state.date.toTimeString()}  <input type="text" /></span>
+
+                    <p>Diffing算法 最小力度是标签或节点，只有span标签里面的时间在更新</p>
+                </div>
+            )
+        }
+    }
+
+    // 2.渲染组件到页面 
+    ReactDOM.render(<Time />, document.getElementById("test"))
+
+</script>

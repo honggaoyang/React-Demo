@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5_对象相关知识 11函数</title>
+</head>
+
+<body>
+    <script>
+        let a = 'name';
+        let obj = {} // 让obj变成这种形式，但是name需要从a里面读出来 {name:'tom'}
+
+        // obj.name = 'tom'  这个是写死的
+        // obj.a = 'tom'   这个a当成字符串了
+        obj[a] = 'tom'   // 需要加[] 中括号形式才能当初变量
+
+
+        console.log(obj);
+    </script>
+</body>
+
+</html>

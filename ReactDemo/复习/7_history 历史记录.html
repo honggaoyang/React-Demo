@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>history</title>
+</head>
+
+<body>
+    <a href="http://www.baidu.com" onclick="return push('/test1')">push test1</a>
+
+    <p>
+        <button onclick="push('/test2')">push test2</button>
+    </p>
+
+    <p>
+        <button onclick="replace('/test3')">replace test3</button>
+    </p>
+
+    <p>
+        <button onclick="back()">&lt;= 回退</button> <button onclick="forword()">前进 =&gt;</button>
+    </p>
+
+
+    <script src="https://cdn.bootcss.com/history/4.7.2/history.js"></script>
+    <script>
+
+        // let history = History.createBrowserHistory();  // 直接使用H5推出的history身上的API
+        let history = History.createHashHistory();   // hash值 （锚点）
+
+        function push(path) {
+            history.push(path)
+            return false;
+        }
+
+        function replace(path) {
+            history.replace(path)
+        }
+
+        function back() {
+            history.goBack()
+        }
+
+        function forword() {
+            history.goForward()
+        }
+
+        history.listen((location) => {
+            console.log("路径变化了", location);
+        })
+
+    </script>
+</body>
+
+</html>

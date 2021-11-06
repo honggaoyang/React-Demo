@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数柯里化</title>
+</head>
+
+<body>
+    <script>
+        // 正常实现方式
+        // function sum(a, b, c) {
+        //     return a + b + c
+        // }
+
+        // console.log(sum(1, 3, 4)); //8
+
+
+        // 函数柯里化实现方式
+        function sum(a) {
+            return (b) => {
+                return (c) => {
+                    return a + b + c
+                }
+            }
+        }
+        console.log(sum(1)(1)(5)); //7
+
+    </script>
+</body>
+
+</html>

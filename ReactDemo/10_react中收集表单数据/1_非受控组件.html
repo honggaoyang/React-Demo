@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1_非受控组件.html</title>
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="test"></div>
+</body>
+
+</html>
+<script type="text/babel">
+
+
+    // 现用现取
+
+    // 1.创建组件
+    class Login extends React.Component {
+        render() {
+            return (
+                <form onSubmit={this.handleSubmit}>
+                    <p>用户名：<input ref={c => this.userName = c} name='userName' type="text" /></p>
+                    <p>密码：<input ref={c => this.passWord = c} name='password' type="text" /></p>
+                    <p><button>提交</button></p>
+                </form>
+            )
+        }
+
+
+        handleSubmit = (event) => {
+            event.preventDefault(); // 阻止表单的提交
+            const { userName, passWord } = this;
+            alert(`用户名为${userName.value}：密码为：${passWord.value}`);
+        }
+    }
+
+    // 2.渲染组件到页面 
+    ReactDOM.render(<Login />, document.getElementById("test"))
+</script>
