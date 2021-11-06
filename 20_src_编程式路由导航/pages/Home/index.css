@@ -1,0 +1,25 @@
+.home_menu ul{
+    display: flex;
+    margin: 10px 0;
+    padding: 0;
+}
+.home_menu ul li{
+    list-style: none;
+}
+.home_menu ul li a{
+    display: block;
+    text-decoration: none;
+    color: rgb(15, 13, 13);
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid teal;
+    text-align: center;
+    font-size: 12px;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+.home_menu ul li .active{
+    background: teal;
+    color: #FFF;
+}

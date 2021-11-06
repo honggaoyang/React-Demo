@@ -1,0 +1,45 @@
+.container{
+    display: flex;
+    width: 500px;
+    border-top: 1px solid #CCC;
+    padding: 10px;
+}
+.menu ul {
+    margin: 0;
+    padding: 0;
+}
+.menu ul li{
+    list-style: none;
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid red;
+    text-align: center;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    user-select: none;
+    font-size: 12px;
+}
+.menu ul .active{
+    background-color: rgb(75, 62, 197);
+    color: white;
+}
+.menu ul .active a{
+    color: white;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+}
+
+.content{
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}

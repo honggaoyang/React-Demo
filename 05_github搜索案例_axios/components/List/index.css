@@ -1,0 +1,26 @@
+.conent ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+}
+.conent ul li{
+    width: 125px;
+    list-style: none;
+    margin-top: 10px;
+    text-align: center;
+}
+.conent ul li span{
+    display: block;
+}
+.conent ul li a{
+    display: inline-block;
+}
+.conent ul li img{
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    border-radius: 50%;
+
+}
